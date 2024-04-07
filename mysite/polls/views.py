@@ -1,8 +1,7 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.db.models import F
 from django.urls import reverse
 from django.views import generic
-from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from .models import Question, Choice
 from django.utils import timezone

@@ -5,6 +5,12 @@ from django.views import generic
 from django.shortcuts import render, get_object_or_404
 from .models import Question, Choice
 from django.utils import timezone
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
+
+
+def home_view(request):
+    return render(request, "polls/home.html")
 
 
 class IndexView(generic.ListView):

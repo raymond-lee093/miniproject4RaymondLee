@@ -22,7 +22,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path("", RedirectView.as_view(url='accounts/login')),
+    path("", RedirectView.as_view(url='polls/home')),
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),

@@ -9,10 +9,6 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 
 
-def home_view(request):
-    return render(request, "polls/home.html")
-
-
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"

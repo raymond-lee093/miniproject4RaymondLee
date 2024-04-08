@@ -7,7 +7,12 @@ from .models import Question, Choice
 from django.utils import timezone
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
 
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'registration/logout.html')
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"

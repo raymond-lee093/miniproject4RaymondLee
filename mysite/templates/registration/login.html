@@ -38,5 +38,7 @@
     </form>
 </body>
 {# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}" style="text-decoration: none">Lost password?</a></p>
+<p style="margin-bottom: 5px;"><a href="{% url 'password_reset' %}" style="text-decoration: none">Password Reset</a></p>
+<a href="{% url 'polls:signup' %}" style="text-decoration: none;">Register</a>
+
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Polls-Homepage</title>
 </head>
 <body>
     <h1>HOMEPAGE</h1>
@@ -13,7 +13,8 @@
         <p><a href="{% url "polls:index" %}">View Polls</a></p>
         <a href="{% url 'polls:logout_view' %}">Logout</a>
     {% else %}
-        <a href="{% url "login" %}">Login</a>
+        <p style="margin-bottom: 5px;"><a style="text-decoration: none;" href="{% url "login" %}">Login</a></p>
+        <a href="{% url 'polls:signup' %}" style="text-decoration: none;">Register</a>
     {% endif %}
 </body>
 </html>

@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.db.models import F
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.shortcuts import render, get_object_or_404
 from .models import Question, Choice
@@ -8,7 +8,9 @@ from django.utils import timezone
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
-
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from django.contrib.auth.models import User
 
 def logout_view(request):
     logout(request)
@@ -61,4 +63,18 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+
+class ExtendedUserCreationForm(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ('username','email')
+
+
+class SignupView(CreateView):
+    form_class = ExtendedUserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
 

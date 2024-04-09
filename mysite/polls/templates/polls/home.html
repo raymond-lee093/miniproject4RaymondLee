@@ -10,9 +10,10 @@
     <h1>HOMEPAGE</h1>
     {% if user.is_authenticated %}
         <p>Welcome: {{ user.username }}</p>
-        <a href="{% url 'polls:logout_view' %}">LOGOUT</a>
+        <p><a href="{% url "polls:home" %}">View Polls</a></p>
+        <a href="{% url 'polls:logout_view' %}">Logout</a>
     {% else %}
-        <a href="{% url "login" %}">LOGIN</a>
+        <a href="{% url "login" %}">Login</a>
     {% endif %}
 </body>
 </html>

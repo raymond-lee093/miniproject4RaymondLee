@@ -12,6 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
+
 def logout_view(request):
     logout(request)
     return render(request, 'registration/logout.html')

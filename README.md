@@ -10,7 +10,7 @@
 
 This project is a basic poll application that this implemented using Django web framework and Python.
 It utilizes HTML and Jinja2 for templating, and incorporates a built-in user authentication system implemented
-by Django. Users can register, log in, and log out seamlessly within the system. Users can create accounts with 
+by Django. Users can register, log in, log out, and password reset within the system. Users can create accounts with 
 first name, last name, unique usernames, emails, and passwords. It also contains an admin site that lets you 
 add, change, and delete polls. Database manipulation can be done within the admin site. Instructions are
 below to create and admin user. The database configuration uses SQLite. SQLite is included in Python, so you won’t 
@@ -79,6 +79,12 @@ Link to visit admin site, administrator login info must be created first
 ```
 http://localhost:8000/admin/login/?next=/admin/
 ```
+
+To password reset, complete within project. In the console you will receive an email with
+the subject as 'Password reset on 127.0.0.1:8000', from 'webmaster@localhost', and to 
+the email associated with the created account. Within the subject of email, you are to copy the link 
+that is sent and paste it in the browser url to complete the password reset.
+
 ## Authors
 
 Contributors names and contact info

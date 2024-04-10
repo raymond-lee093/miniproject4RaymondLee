@@ -15,12 +15,13 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">Polls</h1>
         {% if user.is_authenticated %}
-            <div class="text-center mb-2"> <!-- Added text-center class -->
-                <p class="mb-0">Welcome: {{ user.username }}</p> <!-- Removed mb-2 class -->
+            <div class="text-center mb-2">
+                <p class="mb-0">Welcome: {{ user.username }}</p>
             </div>
             <div class="d-flex justify-content-center">
                 <a href="{% url 'polls:index' %}" class="btn btn-primary me-2">View Polls</a>
-                <a href="{% url 'polls:logout_view' %}" class="btn btn-secondary">Logout</a>
+                <!-- Add data-bs-toggle and data-bs-target attributes to trigger the modal -->
+                <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#logoutConfirmationModal">Logout</a>
             </div>
         {% else %}
             <div class="d-flex justify-content-center">
@@ -28,6 +29,26 @@
                 <a href="{% url 'polls:signup' %}" class="btn btn-secondary">Register</a>
             </div>
         {% endif %}
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutConfirmationModal" tabindex="-1" aria-labelledby="logoutConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutConfirmationModalLabel">Confirm Logout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <!-- Add logout link here -->
+                    <a href="{% url 'polls:logout_view' %}" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS (Optional) -->

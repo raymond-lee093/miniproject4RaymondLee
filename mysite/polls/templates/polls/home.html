@@ -10,8 +10,8 @@
     <h1>HOMEPAGE</h1>
     {% if user.is_authenticated %}
         <p>Welcome: {{ user.username }}</p>
-        <p><a href="{% url "polls:index" %}">View Polls</a></p>
-        <a href="{% url 'polls:logout_view' %}">Logout</a>
+        <p><a style="text-decoration: none" href="{% url "polls:index" %}">View Polls</a></p>
+        <a style="text-decoration: none" href="{% url 'polls:logout_view' %}">Logout</a>
     {% else %}
         <p style="margin-bottom: 5px;"><a style="text-decoration: none;" href="{% url "login" %}">Login</a></p>
         <a href="{% url 'polls:signup' %}" style="text-decoration: none;">Register</a>

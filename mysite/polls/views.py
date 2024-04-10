@@ -6,11 +6,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Question, Choice
 from django.utils import timezone
 from django.views.generic import CreateView
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.views import PasswordResetView
 
 
 def logout_view(request):
@@ -68,14 +68,18 @@ def vote(request, question_id):
 
 class ExtendedUserCreationForm(UserCreationForm):
     email = forms.EmailField()
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
 
     class Meta:
         model = User
-        fields = ('username','email')
+        fields = ('username',"first_name", "last_name", 'email')
 
 
 class SignupView(CreateView):
     form_class = ExtendedUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+
 

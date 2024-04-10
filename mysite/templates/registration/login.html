@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls-Login</title>
+</head>
+<body>
+    {% if form.errors %}
+    <p>Your username or password didn't match. Try again.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    </table>
+
+    <input type="submit" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
+    </form>
+</body>
+{# Assumes you set up the password_reset view in your URLconf #}
+<p style="margin-bottom: 5px;"><a href="{% url 'password_reset' %}" style="text-decoration: none">Password Reset</a></p>
+<a href="{% url 'polls:signup' %}" style="text-decoration: none;">Register</a>
+
+</html>

@@ -35,3 +35,7 @@
 body {
   background-color: var(--light-color);
 }
+
+.content-container {
+  padding-left: 20px; /* Adjust the value as needed */
+}

@@ -9,8 +9,8 @@
 <body>
 {% load static %}
     <link rel="stylesheet" href="{% static 'polls/style.css' %}">
-    <h1>Poll Questions</h1>
     {% if user.is_authenticated %}
+    <h1>Poll Questions</h1>
         {% if latest_question_list %}
         <ul>
         {% for question in latest_question_list %}

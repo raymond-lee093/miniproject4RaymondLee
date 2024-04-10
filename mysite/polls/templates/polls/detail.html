@@ -8,6 +8,7 @@
 </head>
 
 <body>
+{% if user.is_authenticated %}
     <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     <fieldset>
@@ -21,5 +22,8 @@
     <input style="margin-top: 10px" type="submit" value="Vote">
     </form>
     <p><a style="text-decoration: none" href="{% url "polls:index" %}">View Polls</a></p>
+{% else %}
+    <h3>User must be logged in to view page.</h3>
+{% endif %}
 </body>
 </html>

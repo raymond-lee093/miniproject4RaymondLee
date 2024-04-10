@@ -80,6 +80,7 @@ Link to visit admin site, administrator login info must be created first
 http://localhost:8000/admin/login/?next=/admin/
 ```
 
+### Password reset
 To password reset, complete within project. In the console you will receive an email with
 the subject as 'Password reset on 127.0.0.1:8000', from 'webmaster@localhost', and to 
 the email associated with the created account. Within the subject of email, you are to copy the link 

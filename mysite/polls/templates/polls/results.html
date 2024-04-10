@@ -17,6 +17,7 @@
     </ul>
     <a style="text-decoration: none" href="{% url 'polls:detail' question.id %}">Vote again?</a>
     <p><a style="text-decoration: none" href="{% url "polls:index" %}">View Polls</a></p>
+    <a style="text-decoration: none" href="{% url 'polls:logout_view' %}">Logout</a>
 {% else %}
     <h3>User must be logged in to view page.</h3>
     <p style="margin-bottom: 5px;"><a style="text-decoration: none;" href="{% url "login" %}">Login</a></p>

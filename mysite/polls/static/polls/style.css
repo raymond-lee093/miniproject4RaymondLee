@@ -1,3 +1,37 @@
-li a {
-    color: green;
+:root {
+  --primary-color: #606C38;    /* Primary button color */
+  --secondary-color: #283618;   /* Secondary button color */
+  --light-color: #FEFAE0;      /* Background color */
+  --warning-color: #DDA15E;    /* Warning button color */
+  --accent-color: #BC6C25;     /* Accent button color */
+}
+
+/* Override Bootstrap button colors */
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.btn-accent {
+  color: #fff;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Override Bootstrap background color */
+body {
+  background-color: var(--light-color);
 }

@@ -8,8 +8,8 @@
 </head>
 
 <body>
-<h1>{{ question.question_text }}</h1>
 {% if user.is_authenticated %}
+<h1>{{ question.question_text }}</h1>
     <ul>
     {% for choice in question.choice_set.all %}
         <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
@@ -19,6 +19,7 @@
     <p><a style="text-decoration: none" href="{% url "polls:index" %}">View Polls</a></p>
 {% else %}
     <h3>User must be logged in to view page.</h3>
+    <p style="margin-bottom: 5px;"><a style="text-decoration: none;" href="{% url "login" %}">Login</a></p>
 {% endif %}
 </body>
 </html>

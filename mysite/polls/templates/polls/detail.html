@@ -24,6 +24,7 @@
     <p><a style="text-decoration: none" href="{% url "polls:index" %}">View Polls</a></p>
 {% else %}
     <h3>User must be logged in to view page.</h3>
+    <p style="margin-bottom: 5px;"><a style="text-decoration: none;" href="{% url "login" %}">Login</a></p>
 {% endif %}
 </body>
 </html>
